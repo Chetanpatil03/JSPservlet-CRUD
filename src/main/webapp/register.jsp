@@ -17,10 +17,16 @@
 			<label for="email">Email:</label> 
 				<input type="text" id="email" name="email" required><br>
 			<label for="password">Password:</label> 
-				<input type="text" id="password" name="password" required><br>
+				<input type="password" id="password" name="password" required><br>
 			<button type="submit">Register</button>
 		</form>
 		<p><a href ="index.html" >Back to Home</a></p>
+		
+		<% String rs = request.getParameter("registration");
+            if (rs != null && rs.equals("success")) { %>
+                <p style="color: green;">Your Registration is Successful. Please Login.</p>
+        <% } %>
+		
 	</div>
 
 </body>
