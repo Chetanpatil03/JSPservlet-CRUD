@@ -50,6 +50,9 @@ public class LoginServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("username", username);
 			response.sendRedirect("home.jsp");
+			
+//			sending to home page
+//			validation like you can not go to home page until you are logged in 
 		}
 		else {
 			response.sendRedirect("login.jsp?error=1");

@@ -7,12 +7,17 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import com.company.dao.User;
+import com.company.dao.UserDao;
+import com.company.dao.UserDaoImp;
+
 /**
  * Servlet implementation class RegisterServlet
  */
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final UserDao userDao = new UserDaoImp();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -26,7 +31,21 @@ public class RegisterServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		String username = request.getParameter("username");
+		String pass = request.getParameter("password");
+		String email = request.getParameter("email");
+		
+		User user = new User();
+		user.setUsername(username);
+		user.setPassword(pass);
+		user.setEmail(email);
+		
+		if(userDao.addUser(user)) {
+			response.sendRedirect("login.jsp?registration=success");
+		}
+		else {
+			response.sendRedirect("register.jsp?error=1");
+		}
 	}
 
 }

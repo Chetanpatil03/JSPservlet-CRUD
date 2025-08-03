@@ -21,11 +21,18 @@
 		</form>
 		<p><a href ="index.html" >Back to Home</a></p>
 		
+		 <%-- Display error message if wrong credentials --%>
 		<% String error = request.getParameter("error");
 			if(error != null && error.equals("1")){ %>
 				<p style="color:red;">Invalid username password!</p>
 		<% } %>
 		
+		 <%-- Display message if Register Successful --%>
+        <% String rs = request.getParameter("registration");
+            if (rs != null && rs.equals("success")) { %>
+                <p style="color: green;">Your Registration is Successful. Please Login.</p>
+        <% } %>
+        
 	</div>
 </body>
 </html>

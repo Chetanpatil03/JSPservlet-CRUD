@@ -12,7 +12,7 @@ public class UserDaoImp implements UserDao{
 	@Override
 	public boolean isValid(String username, String password){
 		// TODO Auto-generated method stub
-		String query = "select * from user where username = ? and password = ?";
+		String query = Query.select;
 		try(Connection conn = DBUtils.getConnection();
 			PreparedStatement statement = conn.prepareStatement(query)){
 			
@@ -33,7 +33,7 @@ public class UserDaoImp implements UserDao{
 	public boolean addUser(User user) {
 		// TODO Auto-generated method stub
 		
-		String query = "insert into user(username,password,email) values (?,?,?)";
+		String query = Query.insert;
 		
 		try( Connection conn = DBUtils.getConnection();
 				PreparedStatement preparedStatement = conn.prepareStatement(query)){

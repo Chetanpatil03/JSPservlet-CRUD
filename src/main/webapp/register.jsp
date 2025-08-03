@@ -22,9 +22,9 @@
 		</form>
 		<p><a href ="index.html" >Back to Home</a></p>
 		
-		<% String rs = request.getParameter("registration");
-            if (rs != null && rs.equals("success")) { %>
-                <p style="color: green;">Your Registration is Successful. Please Login.</p>
+		<% String error = request.getParameter("error");
+           if (error != null && error.equals("1")) { %>
+            <p style="color: red;">Registration failed. Please try again.</p>
         <% } %>
 		
 	</div>
