@@ -12,7 +12,7 @@ public class UserDaoImp implements UserDao{
 	@Override
 	public boolean isValid(String username, String password){
 		// TODO Auto-generated method stub
-		String query = Query.select;
+		String query = Query.select; //get query from Query class
 		try(Connection conn = DBUtils.getConnection();
 			PreparedStatement statement = conn.prepareStatement(query)){
 			
@@ -33,7 +33,7 @@ public class UserDaoImp implements UserDao{
 	public boolean addUser(User user) {
 		// TODO Auto-generated method stub
 		
-		String query = Query.insert;
+		String query = Query.insert; //get query from Query class
 		
 		try( Connection conn = DBUtils.getConnection();
 				PreparedStatement preparedStatement = conn.prepareStatement(query)){
@@ -57,7 +57,7 @@ public class UserDaoImp implements UserDao{
 	@Override
 	public boolean updateUser(User user) {
 		// TODO Auto-generated method stub
-		String query = Query.update;
+		String query = Query.update; //get query from Query class
 		
 		try( Connection conn = DBUtils.getConnection();
 				PreparedStatement preparedStatement = conn.prepareStatement(query)){
@@ -80,7 +80,7 @@ public class UserDaoImp implements UserDao{
 	@Override
 	public boolean deleteUser(String username) {
 		// TODO Auto-generated method stub
-		String query = Query.delete;
+		String query = Query.delete; //get query from Query class
 		
 		try( Connection conn = DBUtils.getConnection();
 				PreparedStatement preparedStatement = conn.prepareStatement(query)){

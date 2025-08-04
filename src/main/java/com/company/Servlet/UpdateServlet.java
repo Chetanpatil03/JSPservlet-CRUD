@@ -37,7 +37,11 @@ public class UpdateServlet extends HttpServlet {
 		user.setPassword(pass);
 		user.setEmail(email);
 		
+		//same as we created at the time of regester
+		
+		
 		if(userDao.updateUser(user)) {
+			
 			response.sendRedirect("home.jsp?update=success");
 		}
 		else {
