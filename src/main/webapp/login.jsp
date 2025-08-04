@@ -7,7 +7,6 @@
 <title>Login</title>
 <link rel="stylesheet" type="text/css" href="login.css">
 
-
 </head>
 <body>
 	<div class="container">
@@ -17,7 +16,7 @@
 				id="username" name="username" required><br> <label
 				for="password">Password:</label> <input type="password" id="password"
 				name="password" required><br>
-			<button type="submit">Login</button>
+			<button class="Button" type="submit">Login</button>
 		</form>
 		<p><a href ="index.html" >Back to Home</a></p>
 		

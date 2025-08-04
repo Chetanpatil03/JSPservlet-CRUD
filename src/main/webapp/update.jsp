@@ -39,7 +39,7 @@
 				<input type="text" id="email" name="email" required><br>
 			<label for="password">Password:</label> 
 				<input type="password" id="password" name="password" required><br>
-			<input type="submit" value = "Update"/>
+			<input class="Button" type="submit" value = "Update"/>
 		</form>
 		<p><a href ="home.jsp" >Back to Home</a></p>
 		

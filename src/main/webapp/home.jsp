@@ -7,6 +7,27 @@
 <meta charset="UTF-8">
 <title>Home | CRUD</title>
 <link rel="stylesheet" type="text/css" href="style.css">
+ 
+<script type="text/javascript">
+	function confirmDelete(){
+		if(confirm("Are you sure you want to delete your Account")){
+			window.location.href = "DeleteServlet";
+		}
+	}
+</script>
+ <!-- If you are using the post method. 
+ 
+ <script>
+    function confirmDelete() {
+        if (confirm("Are you sure you want to delete your account?")) {
+            document.getElementById("deleteForm").submit();
+        }
+    }
+</script>
+-->
+ 
+
+
 </head>
 <body>
 <%
@@ -26,7 +47,7 @@
 		<p>Keep exploring, learning, and coding your way forward. 🚀</p>
 		<p>Whenever you're ready, you can securely LOGOUT and return anytime. 🔐</p>
 		<div class="links">
-			<a href="logout">LOGOUT</a> | <a href="update.jsp">UPDATE</a> | <a href="DeleteServlet">DELETE</a>
+			<a href="logout">LOGOUT</a> | <a href="update.jsp">UPDATE</a> | <a href="javascript:void(0);" onclick = "confirmDelete()">DELETE</a>
 		</div>
 		
 		<!-- Display success/error messages -->

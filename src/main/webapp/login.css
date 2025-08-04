@@ -44,7 +44,8 @@ input{
 	font-size : 16px;
 }
 
-button{
+button,
+.Button {
 	width : 100%;
 	padding : 12px;
 	cursor : pointer;
@@ -57,7 +58,8 @@ button{
 	
 }
 
-button:hover{
+.Button:hover,
+input :hover {
 	background-color : #0056b3;
 	transform : scale(1.05);
 }

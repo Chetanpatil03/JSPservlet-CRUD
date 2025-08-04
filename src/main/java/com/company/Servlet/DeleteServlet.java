@@ -31,19 +31,16 @@ public class DeleteServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
-//		System.out.println(session.getAttribute("username").toString());
+		System.out.println(session.getAttribute("username").toString());
 		
-		String username = request.getParameter("username");
+		String username = (String) session.getAttribute("username");
 		
 		if(userDao.deleteUser(username)) {
 			response.sendRedirect("logout");
 		}
 		else {
-			response.sendRedirect("home.jsp?error=1");
+			response.sendRedirect("home.jsp?error=2");
 		}
-		
-		
-		
 		
 	}
 

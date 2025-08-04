@@ -18,7 +18,7 @@
 				<input type="text" id="email" name="email" required><br>
 			<label for="password">Password:</label> 
 				<input type="password" id="password" name="password" required><br>
-			<button type="submit">Register</button>
+			<button type="submit" class="Button">Register</button>
 		</form>
 		<p><a href ="index.html" >Back to Home</a></p>
 		
