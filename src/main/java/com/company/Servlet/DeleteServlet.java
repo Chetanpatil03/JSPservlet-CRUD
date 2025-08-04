@@ -30,16 +30,20 @@ public class DeleteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		HttpSession session = request.getSession(false);
-		System.out.println(session.getAttribute("username").toString());
+//		System.out.println(session.getAttribute("username").toString());
 		
 		String username = (String) session.getAttribute("username");
 		
-		if(userDao.deleteUser(username)) {
-			response.sendRedirect("logout");
-		}
-		else {
-			response.sendRedirect("home.jsp?error=2");
+		if(username != null) { //extra layer for confirmation
+			if(userDao.deleteUser(username)) {
+				response.sendRedirect("logout");
+				//when the deletion is completer the user will automatically redirected to logout page.
+			}
+			else {
+				response.sendRedirect("home.jsp?error=2");
+			}
 		}
 		
 	}
