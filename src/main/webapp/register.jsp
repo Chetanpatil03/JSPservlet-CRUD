@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Register</title>
+<title>Register | CRUD</title>
 <link rel="stylesheet" type="text/css" href="login.css">
 
 </head>

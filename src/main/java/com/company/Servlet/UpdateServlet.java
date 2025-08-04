@@ -1,0 +1,48 @@
+package com.company.Servlet;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+import com.company.dao.User;
+import com.company.dao.UserDao;
+import com.company.dao.UserDaoImp;
+
+/**
+ * Servlet implementation class UpdateServlet
+ */
+@WebServlet("/UpdateServlet")
+public class UpdateServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private UserDao userDao = new UserDaoImp();
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public UpdateServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String username = request.getParameter("username");
+		String pass = request.getParameter("password");
+		String email = request.getParameter("email");
+		
+		User user = new User();
+		user.setUsername(username);
+		user.setPassword(pass);
+		user.setEmail(email);
+		
+		if(userDao.updateUser(user)) {
+			response.sendRedirect("home.jsp?update=success");
+		}
+		else {
+			response.sendRedirect("update.jsp?error=1");
+		}
+	}
+
+}

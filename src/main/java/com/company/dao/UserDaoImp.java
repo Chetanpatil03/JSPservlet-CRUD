@@ -54,4 +54,49 @@ public class UserDaoImp implements UserDao{
 		
 	}
 
+	@Override
+	public boolean updateUser(User user) {
+		// TODO Auto-generated method stub
+		String query = Query.update;
+		
+		try( Connection conn = DBUtils.getConnection();
+				PreparedStatement preparedStatement = conn.prepareStatement(query)){
+			
+			preparedStatement.setString(1, user.getEmail());
+			preparedStatement.setString(2, user.getPassword());
+			preparedStatement.setString(3, user.getUsername());
+			
+			int rows = preparedStatement.executeUpdate();
+			
+			return rows > 0;
+		}
+		catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	@Override
+	public boolean deleteUser(String username) {
+		// TODO Auto-generated method stub
+		String query = Query.delete;
+		
+		try( Connection conn = DBUtils.getConnection();
+				PreparedStatement preparedStatement = conn.prepareStatement(query)){
+			
+			preparedStatement.setString(1, username);
+			
+			int rows = preparedStatement.executeUpdate();
+			
+			return rows > 0;
+		}
+		catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+
 }
