@@ -24,6 +24,30 @@
 		<div class="links">
 			<a href="logout">LOGOUT</a> | <a href="update.jsp">UPDATE</a> | <a href="DeleteServlet">DELETE</a>
 		</div>
+		
+		<!-- Display success/error messages -->
+<%
+    String updateStatus = request.getParameter("update");
+    String error = request.getParameter("error");
+
+    if ("success".equals(updateStatus)) {
+%>
+    <p style="color:green;">Update successful!</p>
+<%
+    } else if ("1".equals(error)) {
+%>
+    <p style="color:red;">Update failed. Please try again.</p>
+<%
+    }
+%>
+<%
+    } else if ("2".equals(error)) {
+%>
+    <p style="color:red;">Account Deletion failed. Please try again.</p>
+<%
+    }
+%>
+		
 	</div>
 <%
 		}
