@@ -76,3 +76,6 @@
 %>
 </body>
 </html>
+
+<!-- this page have validation like you can not access this page without the login -->
+<!-- When you login session is automatically created and you get the access -->
