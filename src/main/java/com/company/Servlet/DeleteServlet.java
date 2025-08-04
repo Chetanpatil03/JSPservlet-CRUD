@@ -8,6 +8,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+import com.company.dao.UserDao;
+import com.company.dao.UserDaoImp;
 
 /**
  * Servlet implementation class DeleteServlet
@@ -15,7 +17,7 @@ import java.io.IOException;
 @WebServlet("/DeleteServlet")
 public class DeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    private static final UserDao userDao = new UserDaoImp();   
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -29,7 +31,16 @@ public class DeleteServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
-		System.out.println(session.getAttribute("username").toString());
+//		System.out.println(session.getAttribute("username").toString());
+		
+		String username = request.getParameter("username");
+		
+		if(userDao.deleteUser(username)) {
+			response.sendRedirect("logout");
+		}
+		else {
+			response.sendRedirect("home.jsp?error=1");
+		}
 		
 		
 		
