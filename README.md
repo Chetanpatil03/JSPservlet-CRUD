@@ -1,6 +1,6 @@
 # 🔐 Java Servlet CRUD Web Application
 
-A simple Java-based web application that supports user **registration**, **login/logout**, and full **CRUD operations**. Built using **Servlets**, **JSP**, and **JDBC**, following the MVC + DAO architecture.
+A simple Java-based web application that supports user ```**registration**```, **login/logout**, and full **CRUD operations**. Built using **Servlets**, **JSP**, and **JDBC**, following the MVC + DAO architecture.
 
 ---
 
