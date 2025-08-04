@@ -10,9 +10,13 @@
 </head>
 <body>
 <%
-	HttpSession session1 = request.getSession(false);
-	if(session1 != null && session1.getAttribute("username") != null){
-		String username = (String) session1.getAttribute("username");
+    HttpSession session1 = request.getSession(false);
+    if (session1 != null && session1.getAttribute("username") != null) {
+        String username = (String) session1.getAttribute("username");
+
+        // Get messages from query parameters
+        String updateStatus = request.getParameter("update");
+        String error = request.getParameter("error");
 %>
 	<div class=container>
 		<h1>Welcome, <%=username %>! 👋</h1>
@@ -26,34 +30,28 @@
 		</div>
 		
 		<!-- Display success/error messages -->
-<%
-    String updateStatus = request.getParameter("update");
-    String error = request.getParameter("error");
-
-    if ("success".equals(updateStatus)) {
-%>
-    <p style="color:green;">Update successful!</p>
-<%
-    } else if ("1".equals(error)) {
-%>
-    <p style="color:red;">Update failed. Please try again.</p>
-<%
-    }
-%>
-<%
-    } else if ("2".equals(error)) {
-%>
-    <p style="color:red;">Account Deletion failed. Please try again.</p>
-<%
-    }
-%>
+	<%
+        if ("success".equals(updateStatus)) {
+    %>
+        <p style="color:green;">Update successful!</p>
+    <%
+        } else if ("1".equals(error)) {
+    %>
+        <p style="color:red;">Update failed. Please try again.</p>
+    <%
+        } else if ("2".equals(error)) {
+    %>
+        <p style="color:red;">Account deletion failed. Please try again.</p>
+    <%
+        }
+    %>
 		
 	</div>
 <%
-		}
-		else{
-			response.sendRedirect("login.jsp");
-		}
+    } else {
+        // If session is invalid, redirect to login
+        response.sendRedirect("login.jsp");
+    }
 %>
 </body>
 </html>
